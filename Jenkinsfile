@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Buzz Buzz') {
             steps {
-                echo 'Bees Buzz!'
+                echo 'the devs are buzzin!'
                 
             }
         }
         stage('Buzz Buzz 2') {
             steps {
-                echo 'Bees Buzz 2!'
+                echo 'the devs are buzzin! 2!'
                 
             }
         }
