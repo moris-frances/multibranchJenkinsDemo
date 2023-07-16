@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Buzz Buzz 2') {
             steps {
-                echo 'the devs are buzzin! 2!'
+                sh 'echo the devs are buzzin! 2!'
                 
             }
         }
