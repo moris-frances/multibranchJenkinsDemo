@@ -26,6 +26,9 @@ pipeline {
         stage('Parallel Test') {
             parallel {
                 stage('Statge P1') {
+                    agent {
+                        label 'master'
+                    }
                     steps {
                         sh 'cat test.txt'
                         sh 'echo par1'
@@ -33,6 +36,9 @@ pipeline {
                     }
                 }
                 stage('Statge P2') {
+                    agent {
+                        label 'master'
+                    }
                     steps {
                         sh 'echo par2'
                     }
