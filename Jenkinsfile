@@ -29,10 +29,6 @@ pipeline {
                 }
 
             }
-            steps {
-                sh 'echo the devs are buzzin! 2!>test.txt'
-                    
-            }
         }
 
     }
