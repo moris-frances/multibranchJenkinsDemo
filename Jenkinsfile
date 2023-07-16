@@ -29,7 +29,8 @@ pipeline {
                     agent {
                         label 'master'
                     }
-                    steps {
+                    steps { 
+                        unstash 'test.txt'
                         sh 'cat test.txt'
                         sh 'echo par1'
                         archiveArtifacts(artifacts: '*.txt', fingerprint: true)
