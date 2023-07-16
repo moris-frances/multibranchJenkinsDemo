@@ -1,25 +1,37 @@
 pipeline {
         agent {
-            label 'node1'
+            none
         }
 
     stages {
         stage('Buzz Buzz') {
+            agent {
+                none
+            }
             steps {
                 echo "the devs are ${BUZZ_NAME}!"
                 
             }
         }
         stage('Buzz Buzz 2') {
+            
+            agent {
+                label 'node1'
+            }
             steps {
                 sh 'echo the devs are buzzin! 2!>test.txt'
                 archiveArtifacts(artifacts: '*.txt', fingerprint: true)
+                stash(name: 'test.txt')
             }
         }
         stage('Parallel Test') {
+            agent {
+                none
+            }
             parallel {
                 stage('Statge P1') {
                     steps {
+                        sh 'cat test.txt'
                         sh 'echo par1'
                         archiveArtifacts(artifacts: '*.txt', fingerprint: true)
                     }
