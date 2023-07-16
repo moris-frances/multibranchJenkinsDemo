@@ -14,8 +14,9 @@ pipeline {
                 sh 'echo the devs are buzzin! 2!>test.txt'
             }
         }
-        environment {
-            BUZZ_NAME = 'Worker Bee'
-        }
+
+    }
+    environment {
+        BUZZ_NAME = 'Worker Bee'
     }
 }
