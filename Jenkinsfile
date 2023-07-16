@@ -27,10 +27,11 @@ pipeline {
                         sh 'echo par2'
                     }
                 }
-                steps {
-                    sh 'echo the devs are buzzin! 2!>test.txt'
+
+            }
+            steps {
+                sh 'echo the devs are buzzin! 2!>test.txt'
                     
-                }
             }
         }
 
