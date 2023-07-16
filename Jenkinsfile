@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'echo the devs are buzzin! 2!>tet.txt'
                 archiveArtifacts(artifacts: '*.txt', fingerprint: true)
-                stash(name: 'test.txt')
+                stash(name: 'test')
             }
         }
         stage('Parallel Test') {
@@ -30,9 +30,10 @@ pipeline {
                         label 'master'
                     }
                     steps { 
-                        unstash 'test.txt'
+                        unstash 'test'
                         sh 'cat tet.txt'
                         sh 'echo par1'
+                        input(message: 'Archive?', ok: 'Yes')
                         archiveArtifacts(artifacts: '*.txt', fingerprint: true)
                     }
                 }
