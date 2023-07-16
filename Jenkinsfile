@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+        agent {
+            docker 'bzzzcentos:7'
+        }
 
     stages {
         stage('Buzz Buzz') {
