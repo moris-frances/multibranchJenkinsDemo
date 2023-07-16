@@ -1,6 +1,6 @@
 pipeline {
         agent {
-            docker 'bzzzcentos:7'
+            label 'node1'
         }
 
     stages {
