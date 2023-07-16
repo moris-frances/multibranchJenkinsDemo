@@ -15,21 +15,22 @@ pipeline {
             }
         }
         stage('Parallel Test') {
-        parallel {
-            stage('Statge P1') {
-                steps {
-                    sh 'echo par1'
-                    archiveArtifacts(artifacts: '*.txt', fingerprint: true)
+            parallel {
+                stage('Statge P1') {
+                    steps {
+                        sh 'echo par1'
+                        archiveArtifacts(artifacts: '*.txt', fingerprint: true)
+                    }
                 }
-            }
-            stage('Statge P2') {
-                steps {
-                    sh 'echo par2'
+                stage('Statge P2') {
+                    steps {
+                        sh 'echo par2'
+                    }
                 }
-            }
-            steps {
-                sh 'echo the devs are buzzin! 2!>test.txt'
-                
+                steps {
+                    sh 'echo the devs are buzzin! 2!>test.txt'
+                    
+                }
             }
         }
 
@@ -38,3 +39,5 @@ pipeline {
         BUZZ_NAME = 'Worker Bee'
     }
 }
+
+
