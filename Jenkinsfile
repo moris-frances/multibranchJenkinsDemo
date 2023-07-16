@@ -10,8 +10,8 @@ pipeline {
         }
         stage('Buzz Buzz 2') {
             steps {
-                sh 'echo the devs are buzzin! 2!'
-                
+                sh 'echo the devs are buzzin! 2!>test.txt'
+                archiveArtifacts(artifacts: '*.txt', fingerprint: true)
             }
         }
         
