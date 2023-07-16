@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Buzz Buzz') {
             agent {
-                node 'built-in node'
+                label 'master'
             }
             steps {
                 echo "the devs are ${BUZZ_NAME}!"
@@ -25,9 +25,6 @@ pipeline {
             }
         }
         stage('Parallel Test') {
-            agent {
-                node 'built-in node'
-            }
             parallel {
                 stage('Statge P1') {
                     steps {
