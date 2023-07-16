@@ -18,7 +18,7 @@ pipeline {
                 label 'node1'
             }
             steps {
-                sh 'echo the devs are buzzin! 2!>test.txt'
+                sh 'echo the devs are buzzin! 2!>tet.txt'
                 archiveArtifacts(artifacts: '*.txt', fingerprint: true)
                 stash(name: 'test.txt')
             }
@@ -31,7 +31,7 @@ pipeline {
                     }
                     steps { 
                         unstash 'test.txt'
-                        sh 'cat test.txt'
+                        sh 'cat tet.txt'
                         sh 'echo par1'
                         archiveArtifacts(artifacts: '*.txt', fingerprint: true)
                     }
